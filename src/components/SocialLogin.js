@@ -29,10 +29,10 @@ export default function SocialLogin() {
         }
     }, [navigate]);
 
-    const handleLogin = () => {
-        console.log('SocialLogin - Starting Google OAuth flow');
-        // Redirect to Laravel route that starts the Google OAuth flow
-        window.location.href = 'http://localhost:8000/auth/google';
+    const handleLogin = (provider) => {
+        console.log(`SocialLogin - Starting ${provider} OAuth flow`);
+        // Redirect to Laravel route that starts the OAuth flow
+        window.location.href = `http://localhost:8000/auth/${provider}`;
     };
 
     if (isCheckingAuth) {
@@ -55,7 +55,7 @@ export default function SocialLogin() {
                 </div>
                 
                 <div className="login-content">
-                    <button onClick={handleLogin} className="google-btn">
+                    <button onClick={() => handleLogin('google')} className="google-btn">
                         <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg">
                             <g fill="#000" fillRule="evenodd">
                                 <path d="M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z" fill="#EA4335"/>
@@ -66,10 +66,21 @@ export default function SocialLogin() {
                         </svg>
                         Continue with Google
                     </button>
+                    
+                    <div className="divider">
+                        <span>or</span>
+                    </div>
+                    
+                    <button onClick={() => handleLogin('linkedin')} className="linkedin-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="#0A66C2"/>
+                        </svg>
+                        Continue with LinkedIn
+                    </button>
                 </div>
                 
                 <div className="login-footer">
-                    <p>Secure authentication with Google</p>
+                    <p>Secure authentication with Google & LinkedIn</p>
                 </div>
             </div>
         </div>

@@ -62,6 +62,63 @@
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
 
+.divider {
+  position: relative;
+  margin: 24px 0;
+  text-align: center;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.divider span {
+  background: white;
+  padding: 0 16px;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.linkedin-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 24px;
+  border: 2px solid #0A66C2;
+  border-radius: 8px;
+  background: white;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0A66C2;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.linkedin-btn:hover {
+  background: #0A66C2;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(10, 102, 194, 0.3);
+}
+
+.linkedin-btn:hover svg path {
+  fill: white;
+}
+
+.linkedin-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px -1px rgba(10, 102, 194, 0.2);
+}
+
 .login-footer p {
   font-size: 0.875rem;
   color: #9ca3af;
